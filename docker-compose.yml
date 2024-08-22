@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  video-manager:
+    build: .
+    container_name: video-manager
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./.env
+  frontend:
+    build: ./vxxplayer
+    ports:
+      - "4000:80"
+    depends_on:
+      - video-manager
