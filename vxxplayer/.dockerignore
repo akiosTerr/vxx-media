@@ -2,7 +2,6 @@ node_modules
 Dockerfile
 dist
 docker-compose*
-.env
 .dockerignore
 .git
 .gitignore

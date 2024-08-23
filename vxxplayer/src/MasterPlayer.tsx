@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import { apiUrl } from "@utils/url";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -8,7 +9,6 @@ interface VideoPlayerProps {
   height?: number;
 }
 
-const apiUrl = "http://localhost:3001";
 
 const PlayerMain = styled.div`
   display: flex;
@@ -42,7 +42,7 @@ const MasterPlayer: React.FC<VideoPlayerProps> = ({
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/files");
+        const response = await fetch(`${apiUrl}/api/files`);
         const data: File[] = await response.json();
         setFolders(data);
       } catch (error) {

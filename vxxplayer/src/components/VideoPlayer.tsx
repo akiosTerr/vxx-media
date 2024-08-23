@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { apiUrl } from "@utils/url";
 import React, { useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -35,7 +36,7 @@ const VideoPlayer: React.FC<VideoPlayerProps> = ({
   }, []);
 
   const getUrl = () => {
-    return `http://localhost:3001/video/${folder}/${id}`
+    return `${apiUrl}/video/${folder}/${id}`
   }
 
   return (

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { getThumbnailUrl } from "@utils/formaters";
+import { apiUrl } from "@utils/url";
 
 const Thumbnail = styled.img`
   width: 250px;
@@ -45,7 +46,6 @@ const TagView: React.FC = () => {
   const { folder } = useParams();
   const [videoFiles, setVideoFiles] = useState<File[]>([]);
 
-  const apiUrl = "http://localhost:3001";
 
   const fetchFilesWithDir = useCallback(async () => {
     try {

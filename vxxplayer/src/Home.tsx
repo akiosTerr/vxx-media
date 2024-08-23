@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { VideoFiles } from "./types";
 import VideoGroup from "@components/VideoGroup";
+import { apiUrl } from "@utils/url";
 
 const Main = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const Home: React.FC = () => {
   useEffect(() => {
     const fetchFiles = async () => {
       try {
-        const response = await fetch("http://localhost:3001/api/homefiles");
+        const response = await fetch(`${apiUrl}/api/homefiles`);
         const data: VideoFiles[] = await response.json();
         setVideoFiles(data);
       } catch (error) {
